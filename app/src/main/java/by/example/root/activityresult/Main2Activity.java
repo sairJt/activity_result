@@ -31,6 +31,7 @@ public class Main2Activity extends AppCompatActivity {
         onStop = findViewById(R.id.countOnStop);
         onDestroy = findViewById(R.id.countOnDestroy);
 
+
         if(extras!=null){
             int countOnCreate = extras.getInt("onCreateCount");
             onCreate.setText(String.valueOf(countOnCreate));
