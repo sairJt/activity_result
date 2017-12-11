@@ -17,12 +17,6 @@ public class MainActivity extends AppCompatActivity {
     public static int onDestroyCount =0;
 
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        onCreateCount+=1;
-        setContentView(R.layout.activity_main);
-    }
 
     @Override
     protected void onStart(){
@@ -49,10 +43,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        onCreateCount+=1;
+        setContentView(R.layout.activity_main);
+    }
+
+    @Override
     protected void onDestroy(){
         super.onDestroy();
         onDestroyCount+=1;
     }
+    @SuppressWarnings("unused")
     public void sendMessage (View view){
         Intent intent = new Intent(this, MainActivity.class);
         EditText message = findViewById(R.id.message);
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("message", sendMessage);
         startActivity(intent);
     }
+
     public void counts(View view){
         Intent intent = new Intent(this, Main2Activity.class);
         intent.putExtra("onCreateCount", onCreateCount);
